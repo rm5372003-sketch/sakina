@@ -1,0 +1,25 @@
+name: sakina
+description: سكينة - تطبيق الصلاة والأذكار والمصحف
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  adhan: ^2.0.0+1
+  hijri: ^3.0.0
+  quran: ^1.4.1
+  just_audio: ^0.9.40
+  timezone: ^0.9.4
+  flutter_local_notifications: 17.2.4
+  shared_preferences: ^2.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
