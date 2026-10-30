@@ -255,10 +255,20 @@ final settings = Settings();
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   tzdata.initializeTimeZones();
-  await settings.load();
-  await initNotifications();
-  await scheduleAll(settings.city, settings.adhkarOn);
+  try {
+    await settings.load();
+  } catch (_) {}
   runApp(const SakinaApp());
+  _setupNotifications();
+}
+
+Future<void> _setupNotifications() async {
+  try {
+    await initNotifications();
+    await scheduleAll(settings.city, settings.adhkarOn);
+  } catch (e) {
+    debugPrint('notification error: $e');
+  }
 }
 
 class SakinaApp extends StatelessWidget {
